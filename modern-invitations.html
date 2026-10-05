@@ -1060,7 +1060,6 @@
         tr.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { const i = Math.round(tr.scrollLeft / tr.clientWidth); if (i != ix) { ix = i; upd() } }) });
         $("#pv").onclick = () => go(ix - 1); $("#nx").onclick = () => go(ix + 1);
         $("#th").onclick = e => { const b = e.target.closest("button"); if (b) go(+b.dataset.i) };
-        $("#opts").onclick = e => { const b = e.target.closest("button"); if (b) { st = b.dataset.st; render() } };
         document.querySelectorAll(".kc").forEach(c => c.onclick = () => { st = c.dataset.st; render(); $("#pd").scrollIntoView(); setTimeout(() => go(+c.dataset.i), 350) });
         const lb = $("#lb"); tr.onclick = e => { const s = e.target.closest(".sl"); if (s) { lb.querySelector("img").src = IMG[SETS[st][+s.dataset.i][1]]; lb.classList.add("show") } };
         lb.onclick = () => lb.classList.remove("show"); addEventListener("keydown", e => { if (e.key == "Escape") lb.classList.remove("show"); if (e.key == "ArrowRight") go(ix + 1); if (e.key == "ArrowLeft") go(ix - 1) });
