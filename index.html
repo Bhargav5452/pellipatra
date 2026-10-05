@@ -149,20 +149,32 @@
         .kc {
             position: relative;
             border: 1px solid var(--line);
-            border-radius: 14px;
+            border-radius: 18px;
             overflow: hidden;
-            background: var(--bg);
+            background: #ffffff;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
-            transition: box-shadow .2s, transform .2s;
+            transition: box-shadow .25s ease, transform .25s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        @supports(color:light-dark(#000, #fff)) {
+            .kc {
+                background: light-dark(#ffffff, #1a130d);
+            }
         }
 
         .kc:hover {
-            box-shadow: 0 10px 28px rgba(0, 0, 0, .14);
-            transform: translateY(-3px);
-            border-color: var(--ac);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            border-color: var(--line);
+        }
+
+        .kc-img {
+            position: relative;
+            border-bottom: 1px solid var(--line);
         }
 
         .kc img {
@@ -173,42 +185,126 @@
             background: var(--soft);
         }
 
-        .kc div {
-            padding: 20px;
+        .kc-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 16px;
+        }
+
+        .kc-head b {
+            display: block;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            line-height: 1.25;
+            color: var(--fg);
+            letter-spacing: -0.2px;
+        }
+
+        .kc-sub {
+            color: var(--mut);
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .kc-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .kc-chips span {
+            background: var(--soft);
+            color: var(--fg);
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+        }
+
+        .kc-price-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .kc-price {
+            color: var(--gd); /* Maroon brand color */
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 1;
+        }
+
+        .kc-was {
+            color: var(--mut);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .kc-save {
+            background: #fde8ea;
+            color: #c8102e;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid #f4b6bd;
+        }
+
+        @supports(color:light-dark(#000, #fff)) {
+            .kc-save {
+                background: light-dark(#fde8ea, #400a12);
+                color: light-dark(#c8102e, #ff8a9a);
+                border-color: light-dark(#f4b6bd, #801424);
+            }
+        }
+
+        .kc-desc {
+            color: var(--mut);
+            font-size: 14.5px;
+            line-height: 1.5;
+            margin: 0;
             flex: 1;
         }
 
-        .kc b {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-        
-        .kc .price {
-            color: var(--ac);
+        .kc-cta {
+            background: var(--gd); /* Maroon brand color */
+            color: #fff;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 16px;
+            font-size: 15px;
+            margin-top: auto;
+            transition: opacity .2s, transform .1s;
         }
 
-        .kc small {
-            color: var(--mut);
-            font-size: 14px;
-            line-height: 1.5;
-            display: block;
+        .kc:hover .kc-cta {
+            opacity: 0.9;
         }
-        
+
+        .kc-cta:active {
+            transform: scale(0.98);
+        }
+
         .tag {
             position: absolute;
-            top: 14px;
-            left: 14px;
+            top: 12px;
+            right: 12px;
             background: var(--btn);
             color: var(--btnfg);
-            font-size: 12px;
-            font-weight: 600;
-            border-radius: 999px;
-            padding: 4px 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-size: 11.5px;
+            font-weight: 700;
+            border-radius: 6px;
+            padding: 5px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
         }
 
         .ft {
@@ -244,32 +340,89 @@
             <div class="kg">
                 <!-- Combined Kit -->
                 <a href="modern-traditional-invitations.html" class="kc">
-                    <span class="tag">Best Value</span>
-                    <img src="combo-cover.png" alt="Wedding Invitation Kit">
-                    <div>
-                        <b>Wedding Invitation Kit</b>
-                        <div class="price">₹199</div>
-                        <small>Includes both Modern and Traditional styles. 14 templates.</small>
+                    <div class="kc-img">
+                        <span class="tag">Best Value</span>
+                        <img src="combo-cover.png" alt="Wedding Invitation Kit">
+                    </div>
+                    <div class="kc-body">
+                        <div class="kc-head">
+                            <b>Wedding Invitation Kit</b>
+                            <span class="kc-sub">Modern + Traditional Canva Templates</span>
+                        </div>
+                        
+                        <div class="kc-chips">
+                            <span>14 Templates</span>
+                            <span>Canva Editable</span>
+                            <span>Static + Animated</span>
+                        </div>
+                        
+                        <div class="kc-price-row">
+                            <span class="kc-price">₹199</span>
+                            <s class="kc-was">₹649</s>
+                            <span class="kc-save">Save ₹450</span>
+                        </div>
+                        
+                        <p class="kc-desc">14 ready-to-edit wedding invitation templates in Modern &amp; Traditional styles. Customize names, dates and details easily in Canva.</p>
+                        
+                        <div class="kc-cta">Get the Wedding Kit – ₹199</div>
                     </div>
                 </a>
                 
                 <!-- Modern -->
                 <a href="modern-invitations.html" class="kc">
-                    <img src="modern-cover.png" alt="Modern Invitations">
-                    <div>
-                        <b>Modern Invitations</b>
-                        <div class="price">₹149</div>
-                        <small>Clean, modern design. 8 Canva templates including an animated invitation.</small>
+                    <div class="kc-img">
+                        <img src="modern-cover.png" alt="Modern Invitations">
+                    </div>
+                    <div class="kc-body">
+                        <div class="kc-head">
+                            <b>Modern Invitations</b>
+                            <span class="kc-sub">Modern Canva Templates</span>
+                        </div>
+                        
+                        <div class="kc-chips">
+                            <span>8 Templates</span>
+                            <span>Canva Editable</span>
+                            <span>Static + Animated</span>
+                        </div>
+                        
+                        <div class="kc-price-row">
+                            <span class="kc-price">₹149</span>
+                            <s class="kc-was">₹349</s>
+                            <span class="kc-save">Save ₹200</span>
+                        </div>
+                        
+                        <p class="kc-desc">8 ready-to-edit wedding invitation templates in a clean, modern style. Customize names, dates and details easily in Canva.</p>
+                        
+                        <div class="kc-cta">Get Modern Invitations – ₹149</div>
                     </div>
                 </a>
                 
                 <!-- Traditional -->
                 <a href="traditional-invitations.html" class="kc">
-                    <img src="traditional-cover.png" alt="Traditional Invitations">
-                    <div>
-                        <b>Traditional Invitations</b>
-                        <div class="price">₹99</div>
-                        <small>Classic design with sample Telugu text. 6 Canva templates.</small>
+                    <div class="kc-img">
+                        <img src="traditional-cover.png" alt="Traditional Invitations">
+                    </div>
+                    <div class="kc-body">
+                        <div class="kc-head">
+                            <b>Traditional Invitations</b>
+                            <span class="kc-sub">Classic Canva Templates</span>
+                        </div>
+                        
+                        <div class="kc-chips">
+                            <span>6 Templates</span>
+                            <span>Canva Editable</span>
+                            <span>Static + Animated</span>
+                        </div>
+                        
+                        <div class="kc-price-row">
+                            <span class="kc-price">₹99</span>
+                            <s class="kc-was">₹299</s>
+                            <span class="kc-save">Save ₹200</span>
+                        </div>
+                        
+                        <p class="kc-desc">6 ready-to-edit wedding invitation templates in a classic traditional style with Telugu sample text. Customize easily in Canva.</p>
+                        
+                        <div class="kc-cta">Get Traditional Invitations – ₹99</div>
                     </div>
                 </a>
             </div>
