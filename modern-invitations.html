@@ -909,8 +909,8 @@
 <body>
     <header class="hd">
         <div class="w"><a class="logo" href="/">Pellipatra</a>
-            <nav><a href="#how">How it works</a><a href="#faq">FAQ</a></nav><a
-                class="pill" data-buy href="#">Buy · ₹149</a>
+            <nav><a href="#how">How it works</a><a href="#faq">FAQ</a></nav><a class="pill" data-buy href="#">Buy ·
+                ₹149</a>
         </div>
     </header>
     <main id="top" class="w">
@@ -934,7 +934,7 @@
                 <div class="vr">Style: <span id="sty">Modern</span></div>
                 <a class="pill buy" id="buy" data-buy href="#">Buy now · ₹149</a>
                 <ul class="hl">
-                    <li>8 Canva templates</li>
+                    <li>7 Canva templates</li>
                     <li>Fully animated invitations</li>
                     <li>Change names, date &amp; venue right in Canva</li>
                     <li>Print it, or share on WhatsApp &amp; Instagram Stories</li>
@@ -943,7 +943,8 @@
                 <details open>
                     <summary>What's included</summary>
                     <ul>
-                        <li><b>Modern Templates (8):</b> Invitation, Venue, Ceremony, Mehendi, Haldi, Reception, Engagement. All pages are fully animated.</li>
+                        <li><b>Modern Templates (7):</b> Invitation, Ceremony, Mehendi, Haldi, Reception,
+                            Engagement. All pages are fully animated.</li>
                     </ul>
                 </details>
                 <details>
@@ -990,7 +991,8 @@
             </details>
             <details>
                 <summary>Which events are covered?</summary>
-                <p>Invitation, Venue, Ceremony, Mehendi, Haldi, Reception and Engagement. All pages are fully animated.</p>
+                <p>Invitation, Venue, Ceremony, Mehendi, Haldi, Reception and Engagement. All pages are fully animated.
+                </p>
             </details>
             <details>
                 <summary>Can I print the cards and share them online?</summary>
@@ -1023,27 +1025,29 @@
     <div class="toast" id="ts"></div>
     <script>
         const CHECKOUT_URL = "https://superprofile.bio/vp/tgcZWp_G";
-        const IMG = { 
-    m1: "mockup_01_hero.png", 
-    m2: "mockup_02_flatlay.png", 
-    m3: "mockup_03_share_story.png", 
-    m4: "mockup_04_editable.png", 
-    m5: "mockup_05_edit_on_phone.png", 
-    m6: "mockup_06_stories_trio.png", 
-    m7: "mockup_07_whats_included.png",
-    m8: "mockup_08_how_it_works.png" 
-};
-const SETS = { modern: [
-    ["Hero", "m1"], 
-    ["Flatlay", "m2"], 
-    ["Share Story", "m3"], 
-    ["Editable", "m4"], 
-    ["Edit on phone", "m5"], 
-    ["Stories trio", "m6"], 
-    ["What's included", "m7"], 
-    ["How it works", "m8"]
-] };
-const $ = s => document.querySelector(s), tr = $("#tr"); let st = "modern", ix = 0, raf;
+        const IMG = {
+            m1: "mockup_01_hero.png",
+            m2: "mockup_02_flatlay.png",
+            m3: "mockup_03_share_story.png",
+            m4: "mockup_04_editable.png",
+            m5: "mockup_05_edit_on_phone.png",
+            m6: "mockup_06_stories_trio.png",
+            m7: "mockup_07_whats_included.png",
+            m8: "mockup_08_how_it_works.png"
+        };
+        const SETS = {
+            modern: [
+                ["Hero", "m1"],
+                ["Flatlay", "m2"],
+                ["Share Story", "m3"],
+                ["Editable", "m4"],
+                ["Edit on phone", "m5"],
+                ["Stories trio", "m6"],
+                ["What's included", "m7"],
+                ["How it works", "m8"]
+            ]
+        };
+        const $ = s => document.querySelector(s), tr = $("#tr"); let st = "modern", ix = 0, raf;
         document.querySelectorAll("[data-k]").forEach(i => i.src = IMG[i.dataset.k]);
         function render() {
             const L = SETS[st]; tr.innerHTML = L.map((x, i) => `<div class="sl" data-i="${i}"><img src="${IMG[x[1]]}" alt="${x[0]} template, ${st} style"></div>`).join("");
